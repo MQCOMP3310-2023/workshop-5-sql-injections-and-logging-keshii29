@@ -73,12 +73,14 @@ public class App {
             System.out.print("Enter a 4 letter word for a guess or q to quit: ");
             String guess = scanner.nextLine();
 
-            if (!guess.equals("[a-z] {4}")) {
-                System.out.println("Only 4 letter word and characters accepted, no numbers/symbols");
-                guess = scanner.nextLine();
-            }
+           
 
             while (!guess.equals("q")) {
+                if (!guess.equals("[a-z] {4}")) {
+                    System.out.println("Only 4 letter word and characters accepted, no numbers/symbols");
+                    guess = scanner.nextLine();
+                }
+
                 System.out.println("You've guessed '" + guess+"'.");
 
                 if (wordleDatabaseConnection.isValidWord(guess)) { 
